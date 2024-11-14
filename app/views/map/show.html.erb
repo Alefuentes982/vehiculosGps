@@ -1,0 +1,6 @@
+<h1>Ubicacion de vehiculos en el mapa</h1>
+<div id="map" ></div>
+<div id="datos-vehiculo"><%= @vehicles.to_json.html_safe %></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+<%= javascript_include_tag 'script' %>
