@@ -1,24 +1,33 @@
-# README
+## Prueba técnica, "vehicle_map_test". 
+ - ruby 3.2.2
+ - rails 7.0.8.6
+ - sqlite3
+  
+## Descripción: 
+- En la V1.0 de la API, esta recibe coordenadas de vehículos en cierta estructura definida en formato JSON, almacena los datos y muestra la última ubicación de cada vehículo en un mapa. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Al levantar el servidor en el puerto 3000(en este caso) despliega la pagina como en la captura "screenshotV1.png"   
+ 
+![](screenshootV1.png) 
 
-Things you may want to cover:
+- Las cordenadas son enviadas a través de herramientas como postman con la siguiente estructura:
 
-* Ruby version
+ ## POST URL: http://localhost:3000/api/v1/gps
+ 
+ ## Headers 
+ - key = 'Content-Type'
+ - Value = 'application/json'
+   
+ ## Body (raw,json) 
+ ```json  
+ {
+  "latitude": 20.23,
+  "longitude": -0.56,
+  "sent_at": "2016-06-02 20:45:00",
+  "vehicle_identifier": "HA-3452"
+}
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
