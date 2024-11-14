@@ -2,18 +2,28 @@ class LocationsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    vehicle = Vehicle.find_or_create_by(identifier: params[:vehicle_identifier])
+    # vehicle = Vehicle.find_or_create_by(identifier: params[:vehicle_identifier])
 
-    location = vehicle.locations.create(
-      latitude: params[:latitude],
-      longitude: params[:longitude],
-      sent_at: params[:sent_at]
+    # location = vehicle.locations.create(
+    #      latitude: params[:latitude],
+    #      longitude: params[:longitude],
+    #      sent_at: params[:sent_at]
+    #    )
+
+    #    if location.persisted?
+    #      render json: { status: 'Ubicacion guardada' }, status: :created
+    #    else
+    #      render json: { status: 'Error al guardar ubicacion' }, status: :unprocessable_entity
+    #    end
+    #  end
+
+    ProcessLocationJob.perform_later(
+      params[:vehicle_identifier],
+      params[:latitude],
+      params[:longitude],
+      params[:sent_at]
     )
 
-    if location.persisted?
-      render json: { status: 'Ubicacion guardada' }, status: :created
-    else
-      render json: { status: 'Error al guardar ubicacion' }, status: :unprocessable_entity
-    end
+    render json: { status: 'Ubicación encolada para procesar' }, status: :acepted
   end
 end
