@@ -6,7 +6,7 @@
 ## Descripción: 
 - En la V1.0 de la API, esta recibe coordenadas de vehículos en cierta estructura definida en formato JSON, almacena los datos y muestra la última ubicación de cada vehículo en un mapa. 
 
-* Al levantar el servidor en el puerto 3000(en este caso) despliega la pagina como en la captura "screenshotV1.png"   
+* Al acceder a "localhost:3000/show" despliega la pagina como se muestra en la siguiente captura:     
  
 ![](screenshootV1.png) 
 
